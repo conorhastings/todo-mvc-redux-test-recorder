@@ -1,8 +1,7 @@
-require("babel-register");
 var test = require('tape');
+require('babel-register');
 var equal = require('deep-equal');
-var reducer = require('./reducers/index.js').default;
-
+var reducer = require('./reducers').default;
 
 var state = {
     "todos": [
@@ -20,175 +19,30 @@ test('expected state returned for each action', function(assert) {
   var actions = [
   {
     "action": {
-      "type": "ADD_TODO",
-      "text": "noice"
-    },
-    "nextState": {
-      "todos": [
-        {
-          "id": 1,
-          "completed": false,
-          "text": "noice"
-        },
-        {
-          "text": "Use Redux",
-          "completed": false,
-          "id": 0
-        }
-      ]
-    }
-  },
-  {
-    "action": {
-      "type": "ADD_TODO",
-      "text": "wow"
-    },
-    "nextState": {
-      "todos": [
-        {
-          "id": 2,
-          "completed": false,
-          "text": "wow"
-        },
-        {
-          "id": 1,
-          "completed": false,
-          "text": "noice"
-        },
-        {
-          "text": "Use Redux",
-          "completed": false,
-          "id": 0
-        }
-      ]
-    }
-  },
-  {
-    "action": {
-      "type": "ADD_TODO",
-      "text": "cool"
-    },
-    "nextState": {
-      "todos": [
-        {
-          "id": 3,
-          "completed": false,
-          "text": "cool"
-        },
-        {
-          "id": 2,
-          "completed": false,
-          "text": "wow"
-        },
-        {
-          "id": 1,
-          "completed": false,
-          "text": "noice"
-        },
-        {
-          "text": "Use Redux",
-          "completed": false,
-          "id": 0
-        }
-      ]
-    }
-  },
-  {
-    "action": {
-      "type": "ADD_TODO",
-      "text": "sweet"
-    },
-    "nextState": {
-      "todos": [
-        {
-          "id": 4,
-          "completed": false,
-          "text": "sweet"
-        },
-        {
-          "id": 3,
-          "completed": false,
-          "text": "cool"
-        },
-        {
-          "id": 2,
-          "completed": false,
-          "text": "wow"
-        },
-        {
-          "id": 1,
-          "completed": false,
-          "text": "noice"
-        },
-        {
-          "text": "Use Redux",
-          "completed": false,
-          "id": 0
-        }
-      ]
-    }
-  },
-  {
-    "action": {
-      "type": "COMPLETE_TODO",
-      "id": 3
-    },
-    "nextState": {
-      "todos": [
-        {
-          "id": 4,
-          "completed": false,
-          "text": "sweet"
-        },
-        {
-          "id": 3,
-          "completed": true,
-          "text": "cool"
-        },
-        {
-          "id": 2,
-          "completed": false,
-          "text": "wow"
-        },
-        {
-          "id": 1,
-          "completed": false,
-          "text": "noice"
-        },
-        {
-          "text": "Use Redux",
-          "completed": false,
-          "id": 0
-        }
-      ]
-    }
-  },
-  {
-    "action": {
       "type": "COMPLETE_TODO",
       "id": 0
     },
     "nextState": {
       "todos": [
         {
-          "id": 4,
-          "completed": false,
-          "text": "sweet"
-        },
-        {
-          "id": 3,
+          "text": "Use Redux",
           "completed": true,
-          "text": "cool"
-        },
-        {
-          "id": 2,
-          "completed": false,
-          "text": "wow"
-        },
+          "id": 0
+        }
+      ]
+    }
+  },
+  {
+    "action": {
+      "type": "ADD_TODO",
+      "text": "set up test recorder"
+    },
+    "nextState": {
+      "todos": [
         {
           "id": 1,
           "completed": false,
-          "text": "noice"
+          "text": "set up test recorder"
         },
         {
           "text": "Use Redux",
@@ -200,25 +54,40 @@ test('expected state returned for each action', function(assert) {
   },
   {
     "action": {
-      "type": "DELETE_TODO",
+      "type": "COMPLETE_TODO",
       "id": 1
     },
     "nextState": {
       "todos": [
         {
-          "id": 4,
-          "completed": false,
-          "text": "sweet"
+          "id": 1,
+          "completed": true,
+          "text": "set up test recorder"
         },
         {
-          "id": 3,
+          "text": "Use Redux",
           "completed": true,
-          "text": "cool"
-        },
+          "id": 0
+        }
+      ]
+    }
+  },
+  {
+    "action": {
+      "type": "ADD_TODO",
+      "text": "record a test for what i am doing right now"
+    },
+    "nextState": {
+      "todos": [
         {
           "id": 2,
           "completed": false,
-          "text": "wow"
+          "text": "record a test for what i am doing right now"
+        },
+        {
+          "id": 1,
+          "completed": true,
+          "text": "set up test recorder"
         },
         {
           "text": "Use Redux",
@@ -236,19 +105,69 @@ test('expected state returned for each action', function(assert) {
     "nextState": {
       "todos": [
         {
-          "id": 4,
-          "completed": false,
-          "text": "sweet"
+          "id": 2,
+          "completed": true,
+          "text": "record a test for what i am doing right now"
         },
         {
-          "id": 3,
+          "id": 1,
           "completed": true,
-          "text": "cool"
+          "text": "set up test recorder"
+        },
+        {
+          "text": "Use Redux",
+          "completed": true,
+          "id": 0
+        }
+      ]
+    }
+  },
+  {
+    "action": {
+      "type": "ADD_TODO",
+      "text": "sleep"
+    },
+    "nextState": {
+      "todos": [
+        {
+          "id": 3,
+          "completed": false,
+          "text": "sleep"
         },
         {
           "id": 2,
           "completed": true,
-          "text": "wow"
+          "text": "record a test for what i am doing right now"
+        },
+        {
+          "id": 1,
+          "completed": true,
+          "text": "set up test recorder"
+        },
+        {
+          "text": "Use Redux",
+          "completed": true,
+          "id": 0
+        }
+      ]
+    }
+  },
+  {
+    "action": {
+      "type": "DELETE_TODO",
+      "id": 3
+    },
+    "nextState": {
+      "todos": [
+        {
+          "id": 2,
+          "completed": true,
+          "text": "record a test for what i am doing right now"
+        },
+        {
+          "id": 1,
+          "completed": true,
+          "text": "set up test recorder"
         },
         {
           "text": "Use Redux",

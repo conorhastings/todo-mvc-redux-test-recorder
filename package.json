@@ -4,9 +4,7 @@
   "description": "Redux TodoMVC example",
   "scripts": {
     "start": "node server.js",
-    "test": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-register --require ./test/setup.js",
-    "gen-test": "cross-env NODE_ENV=test node ./gen-test.js",
-    "test:watch": "npm test -- --watch"
+    "test": "node ./gen-test.js"
   },
   "repository": {
     "type": "git",

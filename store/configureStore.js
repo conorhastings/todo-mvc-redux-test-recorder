@@ -2,7 +2,9 @@ import { createStore, applyMiddleware } from 'redux'
 import rootReducer from '../reducers'
 import reduxRecord from 'redux-test-recorder';
 
-const imports = `var equal = require('deep-equal')`;
+const imports = `require('babel-register');
+var equal = require('deep-equal');
+`;
 const equality = '(result, nextState) => equal(result, nextState)';
 const record = reduxRecord({ reducer: rootReducer, includeReducer: false, equality, imports });
 export const recordProps = record.props;
