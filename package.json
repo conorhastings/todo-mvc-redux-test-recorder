@@ -4,8 +4,11 @@
   "description": "Redux TodoMVC example",
   "scripts": {
     "start": "node server.js",
-    "test": "node ./gen-test.js",
-    "build": "NODE_ENV=production ./node_modules/.bin/webpack -p --progress"
+    "build": "NODE_ENV=production ./node_modules/.bin/webpack -p --progress --watch",
+    "test-tape": "node_modules/.bin/tape gen-test-tape.js",
+    "test-mocha": "node_modules/.bin/mocha gen-test-mocha.js",
+    "test-ava": "node_modules/.bin/ava gen-test-ava.js",
+    "test": "npm run test-tape && npm run test-mocha && npm run test-ava"
   },
   "repository": {
     "type": "git",
@@ -24,9 +27,10 @@
     "react-dom": "^0.14.7",
     "react-redux": "^4.2.1",
     "redux": "^3.2.1",
-    "redux-test-recorder": "^0.9.0"
+    "redux-test-recorder": "^0.12.0"
   },
   "devDependencies": {
+    "ava": "^0.13.0",
     "babel-core": "^6.3.15",
     "babel-loader": "^6.2.0",
     "babel-plugin-transform-object-rest-spread": "^6.5.0",
@@ -38,7 +42,7 @@
     "expect": "^1.8.0",
     "express": "^4.13.3",
     "jsdom": "^5.6.1",
-    "mocha": "^2.2.5",
+    "mocha": "^2.4.5",
     "node-libs-browser": "^0.5.2",
     "raw-loader": "^0.5.1",
     "react-addons-test-utils": "^0.14.7",

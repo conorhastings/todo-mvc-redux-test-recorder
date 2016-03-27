@@ -8,3 +8,4 @@ Redux TodoMVC with <a href="http://github.com/conorhastings/redux-test-recorder"
 
 
 <img src="http://i.imgur.com/TCB1wcW.gif" />
+<img src="http://i.imgur.com/lProE6W.gif" />
