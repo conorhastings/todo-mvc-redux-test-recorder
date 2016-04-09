@@ -27,7 +27,7 @@
     "react-dom": "^0.14.7",
     "react-redux": "^4.2.1",
     "redux": "^3.2.1",
-    "redux-test-recorder": "^0.14.1"
+    "redux-test-recorder": "^0.15.1"
   },
   "devDependencies": {
     "ava": "^0.13.0",
